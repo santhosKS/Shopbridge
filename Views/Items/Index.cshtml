@@ -1,0 +1,268 @@
+﻿@model IEnumerable<ShopBridge.Models.ItemsModels>
+
+@{
+    ViewData["Title"] = "Stock Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive-bs/2.2.5/responsive.bootstrap.min.js" integrity="sha512-LVROG6J6mNjjR8g1krDPCuo0JVs8CWI9HtbcR92NOb+McYM3+5Al8u4ehbpum3BPG7ehCRtP90UvB9UaPzNfiA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net/1.10.21/jquery.dataTables.min.js" integrity="sha512-KpU5s1pqURKNsloidq93ZyPKjZga0NgcRIberz+pZrt9e4JVpkZNYkd307Kl0G2cSc9YzLlRO85bIjBcxanG4g==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/1.10.21/dataTables.bootstrap4.min.js" integrity="sha512-WXfSybtdGfHX+J6j+y4Jr7LFrnMpudnY0ez02tWI0mlyPEKE0b15qGfNFY+/H6mswu//i9c1t4MKf+JFSuzgVQ==" crossorigin="anonymous"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+   
+
+    <style>
+        tfoot input {
+            width: 100%;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+<br /> 
+
+<div class="container row p-0 m-0">
+<div class="col-6">
+    <h2 class="text-info">Inventory List</h2>
+</div>
+<div class="col-3">
+    <a asp-action="Index" asp-controller="Home" class="btn btn-info form-control text-white">
+        Home
+    </a>
+</div>
+<div class="col-3 ">
+    <a asp-action="Create" class="btn btn-info form-control text-white">
+        Add New item
+    </a>           
+</div>
+<div style="overflow-x:auto;">
+
+
+<div class="table-responsive">
+<div class="col-12 border p-3">
+    <table id="example" class="table table-striped table-bordered table-hover table-responsive display-1" style="width:100%;font-size: 13px">
+        <thead class="thead-dark">
+            <tr style="white-space: nowrap;"><th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InternalCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HSNCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountsHead)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OEM1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OEM2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BinNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreRoomNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UOM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MinimumQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvailableQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.itemprice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Totalvalueofitem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="white-space: nowrap;">
+                    <td class="col-lg-1">
+                        <span>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.ItemName)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.ItemDescription)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.Depcode)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.InternalCode)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.HSNCode)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.AccountsHead)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.OEM1)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.OEM2)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.BinNumber)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.StoreRoomNumber)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.UOM)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.MinimumQuantity)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.AvailableQuantity)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.itemprice)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.Totalvalueofitem)
+                        </span>
+                    </td>
+                    <td class="col-lg-1">
+                        <span>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </span>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot class="tfoot">
+            @*this footer converted to multi search boxes*@
+        <tr>
+            <th>ItemName</th>
+            <th></th>
+                <th>ItemDescription</th>
+                <th>Depcode</th>
+                <th>InternalCode</th>
+                <th>HSNCode</th>
+                <th>AccountsHead</th>
+                <th>OEM1</th>
+                <th>OEM2</th>
+                <th>BinNumber</th>
+                <th>StoreRoomNumber</th>
+                <th>UOM</th>
+                <th>MinimumQuantity</th>
+                <th>AvailableQuantity</th>
+                <th>itemprice</th>
+                <th>Totalvalueofitem</th>
+                <th>Date</th>
+            </tr>
+        </tfoot>
+    </table>  </div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //------------------------------------------------------------------
+        // Setup - add a text input to each footer cell
+        $('#example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        });
+
+        // DataTable
+        var table = $('#example').DataTable({
+            "pageLength": 10,
+            bInfo: false,
+
+            initComplete: function () {
+
+                var r = $('#MyDataTable tfoot tr');
+                r.find('th').each(function () {
+                    $(this).css('padding', 8);
+                });
+                $('#MyDataTable thead').append(r);
+                $('#search_0').css('text-align', 'center');
+
+                // Apply the search
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            }
+        });
+        //----------------------
+    });
+</script>
+    </body></html>

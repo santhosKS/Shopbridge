@@ -1,0 +1,108 @@
+﻿@model ShopBridge.Models.ItemsModels
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemName" class="control-label"></label>
+                <input asp-for="ItemName" class="form-control" />
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemDescription" class="control-label"></label>
+                <input asp-for="ItemDescription" class="form-control" />
+                <span asp-validation-for="ItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depcode" class="control-label"></label>
+                <input asp-for="Depcode" class="form-control" />
+                <span asp-validation-for="Depcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InternalCode" class="control-label"></label>
+                <input asp-for="InternalCode" class="form-control" />
+                <span asp-validation-for="InternalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HSNCode" class="control-label"></label>
+                <input asp-for="HSNCode" class="form-control" />
+                <span asp-validation-for="HSNCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountsHead" class="control-label"></label>
+                <input asp-for="AccountsHead" class="form-control" />
+                <span asp-validation-for="AccountsHead" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OEM1" class="control-label"></label>
+                <input asp-for="OEM1" class="form-control" />
+                <span asp-validation-for="OEM1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OEM2" class="control-label"></label>
+                <input asp-for="OEM2" class="form-control" />
+                <span asp-validation-for="OEM2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BinNumber" class="control-label"></label>
+                <input asp-for="BinNumber" class="form-control" />
+                <span asp-validation-for="BinNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StoreRoomNumber" class="control-label"></label>
+                <input asp-for="StoreRoomNumber" class="form-control" />
+                <span asp-validation-for="StoreRoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UOM" class="control-label"></label>
+                <input asp-for="UOM" class="form-control" />
+                <span asp-validation-for="UOM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumQuantity" class="control-label"></label>
+                <input asp-for="MinimumQuantity" class="form-control" />
+                <span asp-validation-for="MinimumQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvailableQuantity" class="control-label"></label>
+                <input asp-for="AvailableQuantity" class="form-control" />
+                <span asp-validation-for="AvailableQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="itemprice" class="control-label"></label>
+                <input asp-for="itemprice" class="form-control" />
+                <span asp-validation-for="itemprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Totalvalueofitem" class="control-label"></label>
+                <input asp-for="Totalvalueofitem" class="form-control" />
+                <span asp-validation-for="Totalvalueofitem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<hr />
+<br />
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
